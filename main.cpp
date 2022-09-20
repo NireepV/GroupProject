@@ -1,32 +1,37 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-void OOPGame(int size, std::string Title)
+class OOPGame
 {
-    sf::RenderWindow window(sf::VideoMode(size, size), Title);
-    sf::Texture texture;
-    sf::Image image;
-    image.loadFromFile("test.png");
-    texture.loadFromImage(image);
-
-    sf::Sprite sprite;
-    sprite.setTexture(texture);
-
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(sprite);
-        window.display();
+private:
+    sf::RenderWindow *win;
+public:
+    OOPGame(int size, std::string Title){
+        win = new sf::RenderWindow(sf::VideoMode(size, size), Title);
     }
-}
+    void run()
+    {
+        while (win->isOpen())
+        {
+            sf::Event event;
+            while (win->pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    win->close();
+            }
+
+            win->clear();
+            win->display();
+        }
+    }
+    ~OOPGame(){
+        delete win;
+    }
+};
+
+
 
 int main(){
-    OOPGame(1000,"Doodle Jump");
+    OOPGame a(1000,"Doodle Jump");
+    a.run();
 }
