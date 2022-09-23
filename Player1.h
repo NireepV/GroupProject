@@ -19,18 +19,17 @@ public:
     void draw(sf::RenderWindow* win){
         win->draw(*player);
     }
-    void jump(sf::RenderWindow* win){
-        int maxJumpHeight = (win->getSize().y)/2;
-        int increment = maxJumpHeight/60;
-        int currentHeight = player->getPosition().y;
-        for(;;){
-            std::cout << currentHeight << std::endl;
-            if ((currentHeight < maxJumpHeight)&&(currentHeight == 900))
-            {
-                player->move(sf::Vector2f(0,-increment));
-            } 
-            
-        }
+    void moveRight(){
+        player->move(sf::Vector2f(30,0));
+    };
+    void moveLeft(){
+        player->move(sf::Vector2f(-30,0));
+    };
+    void moveUp(){
+        player->move(sf::Vector2f(0,-30));
+    };
+    void moveDown(){
+        player->move(sf::Vector2f(0,30));
     };
 
     ~Player(){}
