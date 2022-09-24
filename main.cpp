@@ -35,6 +35,9 @@ public:
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
                 {
                     frog->moveDown();
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+                {
+                    frog->scoring(win);
                 }
                 
             }

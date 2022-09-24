@@ -7,7 +7,7 @@ class Player
 {
 private:
     sf::CircleShape* player;
-    int score;
+    int* score;
 public:
     Player(){
         player = new sf::CircleShape();
@@ -15,6 +15,7 @@ public:
         player->setPosition(450,900);
         player->setFillColor(sf::Color::Blue);
         player->setOutlineColor(sf::Color::White);
+        score = 0;
     }
     void draw(sf::RenderWindow* win){
         win->draw(*player);
@@ -31,6 +32,11 @@ public:
     void moveDown(){
         player->move(sf::Vector2f(0,30));
     };
+    int scoring(sf::RenderWindow* win){
+        int psudoScore = 0;
+        int middleLine = (win->getSize().y)/2;
+        return *score;
+    }
 
     ~Player(){}
 };
