@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "Player1.h"
+#include "Player.h"
 
 class OOPGame
 {
