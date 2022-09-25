@@ -1,7 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include <string>
-#include <iostream>
-#include <cmath>
 
 class Player
 {
@@ -11,9 +9,9 @@ private:
 public:
     Player(){
         player = new sf::CircleShape();
-        player->setRadius(50);
-        player->setPosition(450,900);
-        player->setFillColor(sf::Color::Blue);
+        player->setRadius(25);
+        player->setPosition(475,950);
+        player->setFillColor(sf::Color::Green);
         player->setOutlineColor(sf::Color::White);
         score = 0;
     }
