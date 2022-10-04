@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.pyt": "python",
+        "typeinfo": "cpp",
+        "iosfwd": "cpp"
+    }
+}
