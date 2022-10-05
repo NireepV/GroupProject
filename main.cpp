@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "Mechanics/Player.cpp"
-#include "Mechanics/Headers/Road.h"
-#include "Mechanics/Headers/River.h"
+//#include "Mechanics/Player.cpp"
+//#include "Mechanics/Headers/Road.h"
+//#include "Mechanics/Headers/River.h"
 #include "Mechanics/MapGen.cpp"
 
 class OOPGame

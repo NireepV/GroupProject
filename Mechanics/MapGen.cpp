@@ -137,3 +137,5 @@ void MapGen::setupTiles(){
     tiles.push_back(fifteenthRow);
 
 }
+
+MapGen::~MapGen(){}
