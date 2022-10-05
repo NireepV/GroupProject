@@ -7,6 +7,7 @@ Player::Player(){
     player->setFillColor(sf::Color::Green);
     player->setOutlineColor(sf::Color::White);
     score = 0;
+    alive = 1;
 }
 
 void Player::draw(sf::RenderWindow* win){
@@ -14,17 +15,22 @@ void Player::draw(sf::RenderWindow* win){
 }
 
 void Player::movement(){
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if (alive == 1)
     {
-        player->moveRight();
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-    {
-        player->moveLeft();
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-    {
-        player->moveUp();
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-    {
-        player->moveDown();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        {
+            player->moveRight();
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        {
+            player->moveLeft();
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        {
+            player->moveUp();
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        {
+            player->moveDown();
+        }
     }
+    
+    
 }

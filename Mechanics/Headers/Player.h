@@ -5,6 +5,7 @@ class Player
 {
 private:
     sf::CircleShape* player;
+    bool alive;
     int* score;
 public:
     Player(){}
