@@ -6,11 +6,9 @@
 
 class TileGen
 {
-    private:
+    public:
         sf::Vector2f* pos;
         sf::Texture* texture;
-
-    public:
         sf::Sprite* sprite;
         TileGen(std::string name,float,float){}
         ~TileGen(){}
