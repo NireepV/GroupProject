@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "Player.h"
-#include "Road.h"
-#include "River.h"
+#include "Mechanics/Player.cpp"
+#include "Mechanics/Headers/Road.h"
+#include "Mechanics/Headers/River.h"
 
 class OOPGame
 {
@@ -29,23 +29,6 @@ public:
                     win->close();
                 }
                 
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-                {
-                    frog->moveRight();
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-                {
-                    frog->moveLeft();
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-                {
-                    frog->moveUp();
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-                {
-                    frog->moveDown();
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-                {
-                    frog->scoring(win);
-                }
-                
             }
 
             win->clear(sf::Color(0,95,86));
@@ -66,6 +49,6 @@ public:
 
 
 int main(){
-    OOPGame a(1000,"Doodle Jump");
+    OOPGame a(2000,"Doodle Jump");
     a.run();
 }
