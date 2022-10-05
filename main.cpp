@@ -10,13 +10,13 @@ private:
     sf::RenderWindow *win;
     Player* frog;
     River* river;
-    Road* road;
+    River* road;
 public:
     OOPGame(int size, std::string Title){
         win = new sf::RenderWindow(sf::VideoMode(size, size), Title);
         frog = new Player;
         river = new River;
-        road = new Road;
+        road = new River;
     }
     void run()
     {

@@ -1,24 +1,30 @@
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "Surfaces.h"
 #include <stdlib.h>
 #include <time.h>
 
-class Road : public Surfaces
+class River
 {
 private:
+    sf::RectangleShape* river;
     int maxWidth;
     int size;
     int pos;
 public:
-    Road(){
+    River(){
+        river = new sf::RectangleShape();
+        river->setFillColor(sf::Color(100,100,100));
         maxWidth = 400;
         srand(time(0));
         size = rand() % maxWidth + 60;
-        pos = rand() % 1000 ;
-        setColour(sf::Color(100,100,100));
-        setSize(size);
-        setPos(pos);
+        pos = rand() % 1000;
+        river->setPosition(sf::Vector2f(0,pos));
+        river->setSize(sf::Vector2f(1000,size));
     }
-    ~Road(){}
+
+    void draw(sf::RenderWindow* win){
+        win->draw(*river);
+    }
+
+    ~River(){}
 };
