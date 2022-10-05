@@ -65,6 +65,6 @@ public:
 
 
 int main(){
-    OOPGame a(256,"Doodle Jump");
+    OOPGame a(2000,"Doodle Jump");
     a.run();
 }

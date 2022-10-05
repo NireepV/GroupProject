@@ -5,10 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(lldb) Attach",
+            "name": "(lldb) Launch",
             "type": "cppdbg",
-            "request": "attach",
-            "program": "{GroupProject}/sfml-app",
+            "request": "launch",
+            "program": "${workspaceFolder}/sfml-app",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
             "MIMode": "lldb"
         }
 
