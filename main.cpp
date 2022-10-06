@@ -3,21 +3,21 @@
 //#include "Mechanics/Player.cpp"
 //#include "Mechanics/Headers/Road.h"
 //#include "Mechanics/Headers/River.h"
-#include "Mechanics/MapGen.cpp"
+#include "Mechanics/Headers/MapGen.h"
+#include "Global.cpp"
 
 class OOPGame
 {
 private:
     sf::RenderWindow *win;
-    MapGen* map;
+    MapGen map;
     //Player* frog;
     //River* river;
     //River* road;
 public:
     OOPGame(int size, std::string Title){
-        win = new sf::RenderWindow(sf::VideoMode(size, size), Title);
-        map = new MapGen;
-
+        win = new sf::RenderWindow(sf::VideoMode(size, size/2), Title);
+        MapGen map;
         //frog = new Player;
         //river = new River;
         //road = new River;
@@ -36,17 +36,8 @@ public:
             }
 
             win->clear(sf::Color(0,95,86));
-
-            for (int i = 0; i < map->gridLength; i++)
-            {
-                for (int j = 0; j < map->gridLength-1; j++)
-                {
-                    win->draw(*map->tiles[i][j]->sprite);
-                }
-                
-            }
-            
-
+            map.load("Map.png", sf::Vector2u(32, 32), level, 16, 8);
+            win->draw(map);
             //road->draw(win);
             //river->draw(win);
             //frog->draw(win);
@@ -55,7 +46,6 @@ public:
     }
     ~OOPGame(){
         delete win;
-        delete map;
         //delete frog;
         //delete road;
         //delete river;
@@ -65,6 +55,6 @@ public:
 
 
 int main(){
-    OOPGame a(2000,"Doodle Jump");
+    OOPGame a(512,"Frogger");
     a.run();
 }

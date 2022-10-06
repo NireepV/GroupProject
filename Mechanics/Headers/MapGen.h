@@ -1,19 +1,14 @@
 #include <SFML/Graphics.hpp>
-#include "TileGen.h"
-#include <vector>
+#include "TileMap.h"
 
 #ifndef MAPGEN_H
 #define MAPGEN_H
 
-class MapGen
+class MapGen : public TileMap
 {
-private:
-    void setupTiles();
 public:
-    std::vector<std::vector< TileGen*> > tiles;
-    int gridLength;
-    MapGen();
-    ~MapGen();
+    MapGen(){};
+    ~MapGen(){};
 };
 
 
