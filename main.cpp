@@ -16,7 +16,7 @@ private:
     //River* road;
 public:
     OOPGame(int size, std::string Title){
-        win = new sf::RenderWindow(sf::VideoMode(size, size/2), Title);
+        win = new sf::RenderWindow(sf::VideoMode(size, size), Title);
         MapGen map;
         //frog = new Player;
         //river = new River;
@@ -36,7 +36,7 @@ public:
             }
 
             win->clear(sf::Color(0,95,86));
-            map.load("Map.png", sf::Vector2u(32, 32), level, 16, 8);
+            map.load("Map.png", sf::Vector2u(32, 32), level, 16, 15);
             win->draw(map);
             //road->draw(win);
             //river->draw(win);
