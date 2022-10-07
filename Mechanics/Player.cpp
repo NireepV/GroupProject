@@ -17,18 +17,20 @@ void Player::draw(sf::RenderWindow* win){
 void Player::movement(){
     if (alive == 1)
     {
+        bool hasMoved = false;
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            player->moveRight();
+            
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            player->moveLeft();
+            
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         {
-            player->moveUp();
+            
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         {
-            player->moveDown();
+            
         }
     }
     
