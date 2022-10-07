@@ -36,7 +36,7 @@ public:
             }
 
             win->clear(sf::Color(0,95,86));
-            map.load("Map.png", sf::Vector2u(32, 32), level, 16, 15);
+            map.load("Map.png", sf::Vector2u(64, 64), level, 16, 15);
             win->draw(map);
             //road->draw(win);
             //river->draw(win);
@@ -55,6 +55,6 @@ public:
 
 
 int main(){
-    OOPGame a(512,"Frogger");
+    OOPGame a(1024,"Frogger");
     a.run();
 }
