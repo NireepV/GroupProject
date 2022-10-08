@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "TileMap.h"
+#include "TileMap.hpp"
 
 #ifndef MAPGEN_H
 #define MAPGEN_H

@@ -25,4 +25,4 @@
             3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         };
 
-const int PLAYER_SPEED = 64;
+    int PLAYER_SPEED = 64;

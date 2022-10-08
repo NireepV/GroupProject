@@ -1,36 +1,67 @@
-#include "Headers/Player.h"
+#include "Headers/Player.hpp"
 
 Player::Player(){
-    player = new sf::CircleShape();
-    player->setRadius(25);
-    player->setPosition(475,950);
-    player->setFillColor(sf::Color::Green);
-    player->setOutlineColor(sf::Color::White);
-    score = 0;
-    alive = 1;
+    x =480;
+    y =928;
+    texture.loadFromFile("Headers/Frog.png");
+    player.setTexture(texture);
+    player.setPosition(x,y);
+    alive = true;
 }
 
 void Player::draw(sf::RenderWindow* win){
-    win->draw(*player);
+    win->draw(player);
 }
 
 void Player::movement(){
     if (alive == 1)
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        bool hasMoved = false;
+
+        if ((control_keys[0] == false) && (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true))
         {
-            player->moveRight();
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        {
-            player->moveLeft();
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        {
-            player->moveUp();
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        {
-            player->moveDown();
+            hasMoved = true;
+            x= x+64;
+            player.setPosition(sf::Vector2f(x,y));
         }
+        if ((control_keys[1] == false) && (sf::Keyboard::isKeyPressed(sf::Keyboard::A) == true))
+        {
+            hasMoved = true;
+            x= x-64;
+            player.setPosition(sf::Vector2f(x,y));            
+        }
+        if ((control_keys[2] == false) && (sf::Keyboard::isKeyPressed(sf::Keyboard::W) == true))
+        {
+            hasMoved = true;
+            y = y-64;
+            player.setPosition(sf::Vector2f(x,y));            
+        }
+        if ((control_keys[3] == false) && (sf::Keyboard::isKeyPressed(sf::Keyboard::S) == true))
+        {
+            hasMoved = true;
+            y = y+64;
+            player.setPosition(sf::Vector2f(x,y));            
+        }
+
+        control_keys[0] = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+		control_keys[1] = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+		control_keys[2] = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+		control_keys[3] = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
+
+        if (hasMoved == true)
+        {
+            int timer = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                i++;
+            }
+            if (timer == 10)
+            {
+                timer = 0;
+            }
+            hasMoved = false;
+        }
+        
     }
-    
-    
-}
+    }
+
