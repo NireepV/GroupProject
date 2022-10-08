@@ -1,4 +1,4 @@
-#include "Headers/MapGen.h"
+#include "Headers/MapGen.hpp"
 
 MapGen::MapGen(){
 }
