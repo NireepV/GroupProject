@@ -12,6 +12,8 @@ private:
     bool alive;
     int x;
     int y;
+    int lives;
+    int maxLives;
     bool control_keys[4];
 public:
     Player(){
@@ -21,9 +23,21 @@ public:
         player.setTexture(texture);
         player.setPosition(x,y);
         alive = true;
+        maxLives = 3;
+        lives = 1;
     }
 
     void draw(sf::RenderWindow* win){win->draw(player);}
+
+    void death(){
+        alive = false;
+        if (lives > 1)
+        {
+            x = 448;
+            y = 896;
+            lives--;
+        }
+    }
 
     void movement(){
     if (alive == 1)
