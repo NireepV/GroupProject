@@ -24,7 +24,7 @@ public:
         player.setPosition(x,y);
         alive = true;
         maxLives = 3;
-        lives = 1;
+        lives = 10;
     }
 
     void draw(sf::RenderWindow* win){win->draw(player);}
@@ -33,9 +33,18 @@ public:
         alive = false;
         if (lives > 1)
         {
+            alive = true;
             x = 448;
             y = 896;
+            player.setPosition(x,y);
             lives--;
+        }
+    }
+
+    void collision(){
+        if (player.getGlobalBounds().intersects(sf::FloatRect(0,128,1024,320)) == true)
+        {
+            death();
         }
     }
 

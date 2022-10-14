@@ -33,6 +33,7 @@ public:
             map.load("Map.png", sf::Vector2u(64, 64), level, 16, 15);
             win->draw(map);
             frog->movement();
+            frog->collision();
             frog->draw(win);
             win->display();
         }
