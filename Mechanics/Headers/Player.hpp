@@ -41,8 +41,8 @@ public:
         }
     }
 
-    void collision(){
-        if (player.getGlobalBounds().intersects(sf::FloatRect(0,128,1024,320)) == true)
+    void waterEdgeDetect(){
+        if (((player.getPosition().x < 0)||(player.getPosition().x == 1024))&&((player.getPosition().y < 448)||(player.getPosition().y == 128)))
         {
             death();
         }
@@ -56,16 +56,25 @@ public:
         if ((control_keys[0] == false) && (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true))
         {
             hasMoved = true;
-            if (x < 1024-64)
+            if (((player.getPosition().y < 448))&&(x < 1024))
             {
                 x= x+64;
                 player.setPosition(sf::Vector2f(x,y));
-            }  
+            }  else if (x < 960)
+            {
+                x= x+64;
+                player.setPosition(sf::Vector2f(x,y));
+            }
+            
         }
         if ((control_keys[1] == false) && (sf::Keyboard::isKeyPressed(sf::Keyboard::A) == true))
         {
             hasMoved = true;
-            if (x != 0)
+            if (((player.getPosition().y < 448))&&(x >= 0))
+            {
+                x= x-64;
+                player.setPosition(sf::Vector2f(x,y));
+            }  else if (x > 0)
             {
                 x= x-64;
                 player.setPosition(sf::Vector2f(x,y));
