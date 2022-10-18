@@ -36,7 +36,6 @@ public:
             win->clear(sf::Color(0,95,86));
             map.load("Map.png", sf::Vector2u(64, 64), level, 16, 15);
             win->draw(map);
-            box.draw(win);
             frog->movement();
             frog->waterEdgeDetect();
             frog->collision();

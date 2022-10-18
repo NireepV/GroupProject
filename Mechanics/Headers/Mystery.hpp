@@ -52,18 +52,7 @@ public:
         texture.loadFromFile("/Users/user/Documents/VScode/ObjectOrientedProgramming/Group Project/GroupProject/Mechanics/Headers/Mystery.png");
         box.setTexture(texture);
         box.setPosition(sf::Vector2f(x,y));
-    }
-
-    void moveOffScreen(){
-        if (touched == true)
-        {
-            box.setPosition(sf::Vector2f(1024,0));
-        }
-   
-    }
-
-    void draw(sf::RenderWindow *win){
-        win->draw(box);
+        touched = false;
     }
 
 };

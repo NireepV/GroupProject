@@ -42,24 +42,34 @@ public:
         player.setTexture(x);
     }
 
-    void draw(sf::RenderWindow* win){win->draw(player);}
+    void draw(sf::RenderWindow* win){
+        win->draw(player);
+        std::cout << touched << "||||" << lives << std::endl;
+        if (touched == false)
+        {
+            win->draw(box);
+        } 
+    }
 
     void effects(){
-    if (typeBox == 1)
+    if (touched == false)
     {
-        if (lives < 3)
+        if (typeBox == 1)
         {
-            lives = lives + 2;
-        }
+            if (lives < 3)
+            {
+                lives = lives + 2;
+            }
 
-    } else if(typeBox == 0){
-        texture.loadFromFile("/Users/user/Documents/VScode/ObjectOrientedProgramming/Group Project/GroupProject/Mechanics/Headers/BadFrog.png");
-        player.setTexture(texture);
-        x = 448;
-        y = 896;
-        player.setPosition(sf::Vector2f(x,y));
-        inverted = true;
-        box.setPosition(sf::Vector2f(1024,0));
+        } else if(typeBox == 0){
+                texture.loadFromFile("/Users/user/Documents/VScode/ObjectOrientedProgramming/Group Project/GroupProject/Mechanics/Headers/BadFrog.png");
+                player.setTexture(texture);
+                x = 448;
+                y = 896;
+                player.setPosition(sf::Vector2f(x,y));
+                inverted = true;
+                box.setPosition(sf::Vector2f(1024,0));
+        }
     }     
     }
 
@@ -89,7 +99,6 @@ public:
         if (box.getGlobalBounds().intersects(player.getGlobalBounds()))
         {
             touched = true;
-            moveOffScreen();
             effects();
         }
     }
