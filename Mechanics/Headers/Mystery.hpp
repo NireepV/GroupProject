@@ -3,7 +3,6 @@
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
-#include <iostream>
 
 #ifndef MYSTERY_H
 #define MYSTERY_H
@@ -45,7 +44,7 @@ public:
         {
             while (!(randy % 64 == 0))
             {
-                randy = randy + 1;
+                randy = randy - 1;
             }
         }
         x = randx;

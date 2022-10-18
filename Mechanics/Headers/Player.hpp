@@ -44,7 +44,6 @@ public:
 
     void draw(sf::RenderWindow* win){
         win->draw(player);
-        std::cout << touched << "||||" << lives << std::endl;
         if (touched == false)
         {
             win->draw(box);
@@ -69,7 +68,6 @@ public:
                 y = 896;
                 player.setPosition(sf::Vector2f(x,y));
                 inverted = true;
-                box.setPosition(sf::Vector2f(1024,0));
                 prevTouch = true;
         }
     }     
