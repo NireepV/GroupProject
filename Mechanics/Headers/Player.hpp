@@ -51,6 +51,7 @@ public:
         {
             lives = lives + 2;
         }
+
     } else if(typeBox == 0){
         texture.loadFromFile("/Users/user/Documents/VScode/ObjectOrientedProgramming/Group Project/GroupProject/Mechanics/Headers/BadFrog.png");
         player.setTexture(texture);
@@ -58,9 +59,8 @@ public:
         y = 896;
         player.setPosition(sf::Vector2f(x,y));
         inverted = true;
-
-    }
-        
+        box.setPosition(sf::Vector2f(1024,0));
+    }     
     }
 
     void death(){
@@ -88,6 +88,8 @@ public:
     void collision(){
         if (box.getGlobalBounds().intersects(player.getGlobalBounds()))
         {
+            touched = true;
+            moveOffScreen();
             effects();
         }
     }
