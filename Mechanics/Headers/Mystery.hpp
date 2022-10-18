@@ -13,6 +13,7 @@ class Mystery : public PowerUp
 public:
     sf::Texture texture;
     sf::Sprite box;
+    bool prevTouch;
     bool touched;
     int x;
     int y;
@@ -53,6 +54,7 @@ public:
         box.setTexture(texture);
         box.setPosition(sf::Vector2f(x,y));
         touched = false;
+        prevTouch = false;
     }
 
 };

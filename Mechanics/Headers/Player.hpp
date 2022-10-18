@@ -52,7 +52,7 @@ public:
     }
 
     void effects(){
-    if (touched == false)
+    if (prevTouch == false)
     {
         if (typeBox == 1)
         {
@@ -60,6 +60,7 @@ public:
             {
                 lives = lives + 2;
             }
+            prevTouch = true;
 
         } else if(typeBox == 0){
                 texture.loadFromFile("/Users/user/Documents/VScode/ObjectOrientedProgramming/Group Project/GroupProject/Mechanics/Headers/BadFrog.png");
@@ -69,6 +70,7 @@ public:
                 player.setPosition(sf::Vector2f(x,y));
                 inverted = true;
                 box.setPosition(sf::Vector2f(1024,0));
+                prevTouch = true;
         }
     }     
     }
